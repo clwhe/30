@@ -15,7 +15,7 @@ int main()
   double cost_per_can;
   double total_cost;
   int quantity;
-  int row;  /* row of input file */
+  int row;    /* row of input file */
   FILE *inp;  /* pointer to input file */
   
   instruct();
