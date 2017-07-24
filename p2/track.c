@@ -5,9 +5,9 @@
 #define FEET_PER_MILE 5280
 #define FEET_PER_KM 3282
 
-void instruct(void);
+void instruct_user(void);
 
-int main()
+int main(void)
 {
   int minutes;
   double seconds;
@@ -15,7 +15,7 @@ int main()
   double fps;
   double mps;
   
-  instruct();
+  instruct_user();
   
   printf("Minutes for the runner: ");
   scanf("%d", &minutes);
@@ -30,12 +30,12 @@ int main()
          fps, mps);
          
   return 0;
-}  /* main() */
+}
 
 
-void instruct(void)
+void instruct_user(void)
 {
   printf("This program will ask for the minutes and seconds for the time it\n");
   printf("took for a runner to run a mile. The program will then calculate\n");
   printf("the feet per second and meters per second for that runner.\n\n");
-}  /* instruct() - display instructions for user */
+}
