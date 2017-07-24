@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int main()
+int main(void)
 {
   int wt_lb;
   int ht_in;
@@ -27,4 +27,4 @@ int main()
     printf("obese.\n");
   
   return 0;
-}  /* main() */
+}
