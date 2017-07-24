@@ -4,7 +4,7 @@
 
 #define MOW_RATE 2
 
-int main()
+int main(void)
 {
   int length_yard;
   int width_yard;
