@@ -8,7 +8,7 @@
 
 double population(int year);
 
-int main()
+int main(void)
 {
   int year;
   double predicted_pop;
@@ -27,10 +27,10 @@ int main()
   fclose(outp);
   
   return 0;
-}  /* main() */
+}
 
 
 double population(int year)
 {
   return INIT_POP + POP_GROWTH * (year - INIT_YEAR);
-}  /* population() - predicts population for input year */
+}
