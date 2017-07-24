@@ -8,7 +8,7 @@
 #define TAX_RATE 0.0525
 #define CENTS_PER_DOLLAR 100
 
-int main()
+int main(void)
 {
   int weekday_min;
   int night_min;
@@ -51,4 +51,4 @@ int main()
   printf("Total bill:  $%6.2f\n", (doulbe)total_bill / CENTS_PER_DOLLAR);
   
   return 0;
-}  /* main() */
+}
