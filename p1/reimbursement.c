@@ -4,7 +4,7 @@
 
 #define DOLLAR_RATE 0.35
 
-int main()
+int main(void)
 {
   double begin_miles;
   double end_miles;
