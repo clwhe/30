@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int main()
+int main(void)
 {
   double x;
   double y;
@@ -11,8 +11,7 @@ int main()
   scanf("%lf %lf", &x, &y);
   printf("(%.1f, %.1f) is ", x, y);
   
-  if (x < 0)
-  {
+  if (x < 0) {
     if (y < 0)
       printf("in quadrant III\n");
     else if (y > 0)
@@ -20,9 +19,7 @@ int main()
     else  /* y == 0 */
       printf("on the x axis\n");
   }
-  
-  else if (x > 0)
-  {
+  else if (x > 0) {
     if (y < 0)
       printf("in quadrant IV\n");
     else if (y > 0)
@@ -30,9 +27,7 @@ int main()
     else  /* y == 0 */
       printf("on the x axis\n");
   }
-  
-  else  /* x == 0 */
-  {
+  else {  /* x == 0 */
     if (y == 0)
       printf("the origin\n");
     else  /* y != 0 */
@@ -40,4 +35,4 @@ int main()
   }
   
   return 0;
-}  /* main() */
+}
