@@ -22,7 +22,8 @@ int main(void)
   
   inp = fopen("cans.txt", "r");
   
-  for (row = 1; row <= 3; row++) {
+  for (row = 1; row <= 3; row++)
+  {
     fscanf(inp, "%lf %lf", &radius, &height);
     fscanf(inp, "%lf %d", &cost_per_sq_cm, &quantity);
     
