@@ -15,13 +15,14 @@ int main(void)
   
   do {
     display_instructions(&begin_miles, &end_miles);
-    traveled_miles = end_miles - begin_miles;
     
-    if (traveled_miles >= 0)
+    if (end_miles >= begin_miles) {
+      traveled_miles = end_miles - begin_miles;
       reimbursement = traveled_miles * DOLLAR_RATE;
-    else  /* traveled_miles < 0 */
+    }
+    else  /* end_miles < begin_miles */
       printf("Invalid odometer reading input!\n");
-  } while (traveled_miles < 0);
+  } while (end_miles < begin_miles);
   
   printf("You traveled %.1f miles. At $.35 per mile,\n", traveled_miles);
   printf("your reimbursement is $%.2f.\n", reimbursement);
