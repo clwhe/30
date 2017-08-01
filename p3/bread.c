@@ -67,11 +67,9 @@ void calc_baking_time(char type, char loaf_size, char manual)
       total_mins = total_mins + 30;
       printf("Cooling: 30 minutes\n");
     }
-    
     else /* manual baking */
       printf("You should remove the dough for manual baking.\n");
   }
-  
   else { /* sweet bread */
     total_mins = total_mins + 20;
     printf("Primary kneading: 20 minutes\n");
@@ -107,5 +105,4 @@ void calc_baking_time(char type, char loaf_size, char manual)
   
   printf("\nFor a total baking time of %d minutes and %d seconds.\n",
          total_mins, total_secs);
-}
 }
