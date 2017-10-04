@@ -14,6 +14,10 @@ int main(int argc, char *argv[])
   FILE *fp;
   
   fp = fopen(argv[1], "r");
+  if (fp == NULL) {
+    printf("Can't open %s\n", argv[1]);
+    return 1;
+  }
   fscanf(fp, "%d", &player);  /* read first player number */
   while ((c = getc(fp)) != EOF) {
     if (c == ' ')
