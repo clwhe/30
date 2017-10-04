@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-#define INC_WEEKDAY_MIN 600
+#define INCLUDED_MIN 600
 #define FLAT_RATE 3999
 #define ADD_MIN_RATE 40
 #define TAX_RATE 0.0525
@@ -28,8 +28,8 @@ int main(void)
   
   total_min = weekday_min + night_min + weekend_min;
   
-  if (weekday_min > 600)
-    pretax_bill = (weekday_min - INC_WEEKDAY_MIN) * ADD_MIN_RATE + FLAT_RATE;
+  if (weekday_min > INCLUDED_MIN)
+    pretax_bill = (weekday_min - INCLUDED_MIN) * ADD_MIN_RATE + FLAT_RATE;
   else  /* weekday_min <= 600 */
     pretax_bill = FLAT_RATE;
   
@@ -48,7 +48,7 @@ int main(void)
   
   printf("Pretax bill: $%6.2f\n", (double)pretax_bill / CENTS_PER_DOLLAR);
   printf("Taxes:       $%6.2f\n", (double)rounded_taxes / CENTS_PER_DOLLAR);
-  printf("Total bill:  $%6.2f\n", (doulbe)total_bill / CENTS_PER_DOLLAR);
+  printf("Total bill:  $%6.2f\n", (double)total_bill / CENTS_PER_DOLLAR);
   
   return 0;
 }
