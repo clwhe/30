@@ -2,6 +2,15 @@
 
 #include <stdio.h>
 
+#define PRIMARY_KNEADING 0
+#define PRIMARY_RISING 1
+#define SECONDARY_KNEADING 2
+#define SECONDARY_RISING 3
+#define LOAF_SHAPING 4
+#define FINAL_RISING 5
+#define BAKING 6
+#define COOLING 7
+
 void display_instructions(char *type, char *loaf_size, char *manual);
 void white_bread(int step_times[]);
 void sweet_bread(int step_times[]);
@@ -44,27 +53,27 @@ void display_instructions(char *type, char *loaf_size, char *manual)
 
 void white_bread(int step_times[])
 {
-  step_times[0] = 15;
-  step_times[1] = 60;
-  step_times[2] = 18;
-  step_times[3] = 20;
-  step_times[4] = 2;
-  step_times[5] = 75;
-  step_times[6] = 45;
-  step_times[7] = 30;
+  step_times[PRIMARY_KNEADING] = 15;
+  step_times[PRIMARY_RISING] = 60;
+  step_times[SECONDARY_KNEADING] = 18;
+  step_times[SECONDARY_RISING] = 20;
+  step_times[LOAF_SHAPING] = 2; /* seconds */
+  step_times[FINAL_RISING] = 75;
+  step_times[BAKING] = 45;
+  step_times[COOLING] = 30;
 }
 
 
 void sweet_bread(int step_times[])
 {
-  step_times[0] = 20;
-  step_times[1] = 60;
-  step_times[2] = 33;
-  step_times[3] = 30;
-  step_times[4] = 2;
-  step_times[5] = 75;
-  step_times[6] = 35;
-  step_times[7] = 30;
+  step_times[PRIMARY_KNEADING] = 20;
+  step_times[PRIMARY_RISING] = 60;
+  step_times[SECONDARY_KNEADING] = 33;
+  step_times[SECONDARY_RISING] = 30;
+  step_times[LOAF_SHAPING] = 2; /* seconds */
+  step_times[FINAL_RISING] = 75;
+  step_times[BAKING] = 35;
+  step_times[COOLING] = 30;
 }
 
 
@@ -79,12 +88,12 @@ void calc_baking_time(char loaf_size, char manual, int step_times[])
   baking_secs = 0;
   
   if (loaf_size == 'D' || loaf_size == 'd') {
-    baking_secs = step_times[6] * 60;
+    baking_secs = step_times[BAKING] * 60;
     /* increase baking time by 50% for double loaf */
     baking_secs = baking_secs * 3;
     baking_secs = baking_secs / 2;
     /* store mins and secs separately */
-    step_times[6] = baking_secs / 60;
+    step_times[BAKING] = baking_secs / 60;
     baking_secs = baking_secs % 60;
   }
   else if (loaf_size == 'S' || loaf_size == 's')
@@ -92,22 +101,22 @@ void calc_baking_time(char loaf_size, char manual, int step_times[])
   else
     printf("Invalid loaf size!\n");
 
-  printf("Primary kneading: %d minutes\n", step_times[0]);
-  printf("Primary rising: %d minutes\n", step_times[1]);
-  printf("Secondary kneading: %d minutes\n", step_times[2]);
-  printf("Secondary rising: %d minutes\n", step_times[3]);
-  printf("Loaf shaping: %d seconds\n", step_times[4]);
+  printf("Primary kneading: %d minutes\n", step_times[PRIMARY_KNEADING]);
+  printf("Primary rising: %d minutes\n", step_times[PRIMARY_RISING]);
+  printf("Secondary kneading: %d minutes\n", step_times[SECONDARY_KNEADING]);
+  printf("Secondary rising: %d minutes\n", step_times[SECONDARY_RISING]);
+  printf("Loaf shaping: %d seconds\n", step_times[LOAF_SHAPING]);
     
   if (manual == 'N' || manual == 'n') {
-    printf("Final rising: %d minutes\n", step_times[5]);
-    printf("Baking: %d minutes %d seconds\n", step_times[6], baking_secs);
-    printf("Cooling: %d minutes\n", step_times[7]);
+    printf("Final rising: %d minutes\n", step_times[FINAL_RISING]);
+    printf("Baking: %d minutes %d seconds\n", step_times[BAKING], baking_secs);
+    printf("Cooling: %d minutes\n", step_times[COOLING]);
   }
   else if (manual == 'Y' || manual == 'y') {
     printf("You should remove the dough for manual baking.\n");
-    step_times[5] = 0;
-    step_times[6] = 0;
-    step_times[7] = 0;
+    step_times[FINAL_RISING] = 0;
+    step_times[BAKING] = 0;
+    step_times[COOLING] = 0;
   }
   else
     printf("Invalid baking mode!\n");
