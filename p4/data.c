@@ -28,10 +28,9 @@ int main(int argc, char *argv[])
 
   for (i = 2; i <= n; i++) {
     fscanf(fp, " %lf", &value);
-   /* printf(" %f", value); */
     if (value < smallest)
       smallest = value;
-    else if (value > largest)
+    if (value > largest)
       largest = value;
     sum = sum + value;
     sum_squares = sum_squares + (value * value);
