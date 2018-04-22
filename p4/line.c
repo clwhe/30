@@ -93,22 +93,37 @@ float intcpt_from_pt_slope(int x1, int y1, float m) {
 
 void display2_pt(int x1, int y1, int x2, int y2) {
   printf("\nTwo-point form\n");
-  printf("      (%4.2f-%5.2f)\n", (float)y2, (float)y1);
+  if (y1 >= 0)  /* prevent double minus y1 */
+    printf("      (%4.2f -%5.2f)\n", (float)y2, (float)y1);
+  else
+    printf("      (%4.2f +%5.2f)\n", (float)y2, (float)-y1);
   printf("  m = -------------\n");
-  printf("      (%4.2f -%5.2f)\n", (float)x2, (float)x1);
+  if (x1 >= 0)  /* prevent double minus x1 */
+    printf("      (%4.2f -%5.2f)\n", (float)x2, (float)x1);
+  else
+    printf("      (%4.2f +%5.2f)\n", (float)x2, (float)-x1);
 }
 
 
 void display_pt_slope(int x1, int y1, float m) {
   printf("\nPoint-slope form\n");
-  printf("  y -%5.2f =%5.2f(x -%5.2f)\n", (float)y1, m, (float)x1);
+  if (y1 >= 0)  /* prevent double minus y1 */
+    printf(" y -%5.2f", (float)y1);
+  else
+    printf(" y +%5.2f", (float)-y1);
+  printf(" =%5.2f", m);
+  if (x1 >= 0)  /* prevent double minus x1 */
+    printf("(x -%5.2f)\n", (float)x1);
+  else
+    printf("(x +%5.2f)\n", (float)-x1);
+/*  printf("  y -%5.2f =%5.2f(x -%5.2f)\n", (float)y1, m, (float)x1);  */
 }
 
 
 void display_slope_intcpt(float m, float b) {
   printf("\nSlope-intercept form\n");
-  if (b < 0)
-    printf("  y =%5.2fx -%5.2f\n\n", m, -b); /* prevent double minus b */
+  if (b < 0)  /* prevent double minus b */
+    printf("  y =%5.2fx -%5.2f\n\n", m, -b);
   else
     printf("  y =%5.2fx +%5.2f\n", m, b);
 }
