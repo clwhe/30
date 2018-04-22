@@ -116,7 +116,6 @@ void display_pt_slope(int x1, int y1, float m) {
     printf("(x -%5.2f)\n", (float)x1);
   else
     printf("(x +%5.2f)\n", (float)-x1);
-/*  printf("  y -%5.2f =%5.2f(x -%5.2f)\n", (float)y1, m, (float)x1);  */
 }
 
 
