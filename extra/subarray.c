@@ -4,6 +4,7 @@
 
 int get_sum(int list[], int i, int j);
 void display_indices(int index_i, int index_j);
+void display_sum(int largest);
 
 int main()
 {
@@ -29,6 +30,7 @@ int main()
     }
   }
   display_indices(index_i, index_j);
+  display_sum(largest);
 
   return 0;
 }
@@ -37,13 +39,16 @@ int get_sum(int list[], int i, int j) {
   int temp = 0;
 
   while (i <= j) {
-    temp = temp + list[i];
-    i++;
+    temp = temp + list[i++];
   }
   return temp;
 }
 
 void display_indices(int index_i, int index_j) {
   printf("\nDisplaying subarray which has the largest sum:\n");
-  printf("Entries between index %d and index %d\n", index_i, index_j);
+  printf("Entries between index %d and index %d inclusive\n", index_i, index_j);
+}
+
+void display_sum(int largest) {
+  printf("\nsum = %d\n\n", largest); 
 }
