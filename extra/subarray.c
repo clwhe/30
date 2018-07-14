@@ -8,7 +8,8 @@ void display_sum(int largest);
 
 int main()
 {
-  int list[] = {8, -7, 2, 2, 12, 6, -10, 2, 14, 7, -10, -1, -13, -2, 10};
+  int list[] = {-8, -7, -2, -2, -12, -6, -10,
+		-2, -14, -7, -10, -1, -13, -2, -10};
   int sum;
   int largest;
   int i, j, index_i, index_j;
@@ -19,8 +20,8 @@ int main()
   index_i = 0;
   index_j = 0;
 
-  for (i = 0; i <= n - 2; i++) {
-    for (j = i + 1; j <= n - 1; j++) {
+  for (i = 0; i <= n - 1; i++) {
+    for (j = i; j <= n - 1; j++) {
       sum = get_sum(list, i, j);
       if (sum > largest) {
         largest = sum;
